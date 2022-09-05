@@ -26,7 +26,8 @@ win:
 
 dbg: linux_debug
 
-all: linux win
+release: clean linux win
+	rm -rf linux win32
 
 clean:
 	rm -rf linux linuxd win32 *.a core.* \
