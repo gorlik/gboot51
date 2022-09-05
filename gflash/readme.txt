@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
  gflash - Readme.txt
 -------------------------------------------------------------------------------
-Copyright (c) 2010,2013 Gabriele Gorla
+Copyright (c) 2010,2013,2022 Gabriele Gorla
 gorlik@yahoo.com
 
 gflash is a command line flash update utility for Silicon Laboratories 
@@ -22,17 +22,12 @@ Linux requirements:
 libusb-1.0-dev
 GNU make
 gcc
-gboot source
 
-make a symlink named gboot in the gflash directory pointing to the gboot source.
 to build type "make". If you have mingw32 cross development tools installed
 you can build the windows version typing "make win"
 
 Building on windows should be fairly simple, but untested. A precompiled win32 binary 
 can be found at http://gglabs.us/node/3
-
-The windows binaries are statically linked against libusbx 1.0.17 (not libusb).
- 
 
 Using gflash
 ----------------------------

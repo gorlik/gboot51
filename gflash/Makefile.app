@@ -23,7 +23,7 @@ WXCONFIG = i686-wx-config
 BF = -win32
 CFLAGS += -I/usr/local/i686-w64-mingw32/include
 CXXLAGS += -I/usr/local/i686-w64-mingw32/include -fno-rtti -fno-exceptions
-LIBS += -L/usr/local/i686-w64-mingw32/lib -lsetupapi -lole32 -ladvapi32
+LIBS += -L/usr/local/i686-w64-mingw32/lib -static -lsetupapi -lole32 -ladvapi32
 else
 WXCONFIG=wx-config
 endif
