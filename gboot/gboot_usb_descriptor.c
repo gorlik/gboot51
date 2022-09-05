@@ -2,7 +2,7 @@
  * gboot - gboot_usb_descriptor.c
  * A simple USB HID bootloader for silicon laboratories USB mcus
  *
- * Copyright (c) 2010, 2013 Gabriele Gorla
+ * Copyright (c) 2010, 2013, 2022 Gabriele Gorla
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -106,7 +106,7 @@ const __code config_descriptor_set_t HIDCONFIGDESC =
 const __code unsigned char HIDREPORTDESC[HID_REPORT_DESCRIPTOR_SIZE] =
 {
     0x06, 0x00, 0xff,              // USAGE_PAGE (Vendor Defined Page 1)
-    0x09, 0x01,                    // USAGE (Vendor Usage 1)
+    //    0x09, 0x01,                    // USAGE (Vendor Usage 1)
     0xa1, 0x01,                    // COLLECTION (Application)
     // 0x85, RFEAT_CMD_ID,              // Report ID
     0x95, CMD_PACKET_SIZE,         //   REPORT_COUNT ()

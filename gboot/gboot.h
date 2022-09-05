@@ -2,7 +2,7 @@
  * gboot - gboot.h
  * A simple USB HID bootloader for silicon laboratories USB mcus
  *
- * Copyright (c) 2010, 2013 Gabriele Gorla
+ * Copyright (c) 2010, 2013, 2022 Gabriele Gorla
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #include <C8051F320.h>
 #include "gboot_usb_descriptor.h"
 
-#define GBOOT_VERSION 0x0029
+#define GBOOT_VERSION 0x0030
 #ifdef  GBOOT_TINY
 #define GBOOT_API 0x0
 #else
