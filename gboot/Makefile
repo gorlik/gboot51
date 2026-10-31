@@ -19,8 +19,8 @@ FW_START=0x0400
 #AS = sdas8051
 #CC = /mnt/share/local/sdcc33/bin/sdcc
 #AS = /mnt/share/local/sdcc33/bin/sdas8051
-CC = /mnt/share/local/sdcc420/bin/sdcc
-AS = /mnt/share/local/sdcc420/bin/sdas8051
+CC = /mnt/share/local/sdcc-460/bin/sdcc
+AS = /mnt/share/local/sdcc-460/bin/sdas8051
 
 # now both tiny and standard are 1.5k and use first 2 and last page of flash
 ifeq ($(FLASH_SIZE),16)

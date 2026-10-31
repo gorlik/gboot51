@@ -2,7 +2,7 @@
  * gboot - gboot_main.c
  * A simple USB HID bootloader for silicon laboratories USB mcus
  *
- * Copyright (c) 2010, 2013 Gabriele Gorla
+ * Copyright (c) 2010, 2013, 2026 Gabriele Gorla
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,14 +42,14 @@ static void Handle_Control (void);
 #define GBOOT_EXVER (GBOOT_VERSION | (GBOOT_API<<12) )
 
 // pass defines to the assembler/linker
-__code  __at(GBOOT_EXVER) unsigned char gboot_version [];
-__code  __at(FLASH_START) unsigned char user_code_start [];
-__code  __at(FLASH_END)   unsigned char user_flash_end [];
+__code  __at(GBOOT_EXVER) const unsigned char *gboot_version;
+__code  __at(FLASH_START) const unsigned char *user_code_start;
+__code  __at(FLASH_END)   const unsigned char *user_flash_end;
 
-__code  __at(MCU_TYPE) unsigned char mcu_type [];
-__code  __at(HW_PID)   unsigned char hw_pid [];
-__code  __at(HW_REV)   unsigned char hw_rev [];
-__code  __at(PCB_REV)  unsigned char pcb_rev [];
+__code  __at(MCU_TYPE) const unsigned char *mcu_type;
+__code  __at(HW_PID)   const unsigned char *hw_pid;
+__code  __at(HW_REV)   const unsigned char *hw_rev;
+__code  __at(PCB_REV)  const unsigned char *pcb_rev;
 
 
 #ifndef USE_EP1
@@ -65,7 +65,7 @@ __code  __at(PCB_REV)  unsigned char pcb_rev [];
 // redefine USB_POLL to local version to save space
 #define USB_POLL() USB_POLL_LOCAL()
 
-void USB_POLL_LOCAL() __naked
+void USB_POLL_LOCAL(void) __naked
 {
   __asm 
     ljmp _USB_POLL
@@ -232,7 +232,7 @@ void Fifo_Read_EP0(unsigned char __data * pData)
 }
 
 
-inline void Fifo_Write_EP0()
+inline void Fifo_Write_EP0(void)
 {
   // Write <DATASIZE> bytes to the EP0 FIFO
   USB_POLL();
@@ -329,7 +329,7 @@ unsigned char USB_READ_REG(unsigned char a)
   return USB0DAT;
 }
 
-void USB_READ_E0CSR()
+void USB_READ_E0CSR(void)
 {
   ControlReg=USB_READ_REG(E0CSR);
 }

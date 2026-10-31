@@ -26,7 +26,7 @@
 
 
 
-__bit write_enable()
+__bit write_enable(void)
 {
   // prevent overwriting the bootloader
   if(OUT_PACKET[2]<(FLASH_START>>8)||OUT_PACKET[2]>(FLASH_END>>8))
@@ -69,7 +69,7 @@ void ReportHandler(void)
     //OSCICN=0;
     break;
   case CMD_READ:
-   TXDATAPTR=(tx_dataptr_t)((__code unsigned char *)(*((__data int *)&OUT_PACKET[1])));
+   TXDATAPTR=(tx_dataptr_t)((const __code unsigned char *)(*((__data int *)&OUT_PACKET[1])));
     break;
   default:
   }

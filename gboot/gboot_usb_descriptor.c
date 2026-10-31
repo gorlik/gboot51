@@ -119,9 +119,9 @@ const __code unsigned char HIDREPORTDESC[HID_REPORT_DESCRIPTOR_SIZE] =
 };
 
 
-extern __code unsigned char String0Desc [];
+extern const __code unsigned char String0Desc [];
 
-__code unsigned char String1Desc [] =
+const __code unsigned char String1Desc [] =
 {
   sizeof(String1Desc), DSC_STRING,
   'G', 0,
@@ -132,7 +132,7 @@ __code unsigned char String1Desc [] =
   'S', 0
 }; 
 
-__code unsigned char String2Desc [] =
+const __code unsigned char String2Desc [] =
 {
   sizeof(String2Desc), DSC_STRING,
   'G', 0,

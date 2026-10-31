@@ -2,7 +2,7 @@
  * gboot - gboot_usb_core.h
  * A simple USB HID bootloader for silicon laboratories USB mcus
  *
- * Copyright (c) 2010 Gabriele Gorla
+ * Copyright (c) 2010, 2026 Gabriele Gorla
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@
 
 
 #ifdef GBOOT_TINY
-typedef __code unsigned char * tx_dataptr_t;
+typedef __code const unsigned char * tx_dataptr_t;
 #else
 typedef unsigned char * tx_dataptr_t;
 #endif
@@ -66,12 +66,12 @@ void Handle_Request(void);
 void Fifo_Read_EP0 (unsigned char __data *);
 
 unsigned char USB_READ_REG(unsigned char a);
-void USB_READ_E0CSR();
+void USB_READ_E0CSR(void);
 
 void USB_WRITE_REG_REV(unsigned char d, unsigned char a);
 void USB_WRITE_E0CSR(unsigned char d);
-void USB_WRITE_E0CSR_END();
-void USB_WRITE_E0CSR_SOPRDY();
+void USB_WRITE_E0CSR_END(void);
+void USB_WRITE_E0CSR_SOPRDY(void);
 void USB_WRITE_INDEX(unsigned char d);
 
 #define USB_WRITE_REG(a,d) USB_WRITE_REG_REV(d,a)

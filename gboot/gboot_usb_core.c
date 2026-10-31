@@ -43,14 +43,14 @@
 //-----------------------------------------------------------------------------
 // External Global Variable Definitions
 //-----------------------------------------------------------------------------
-extern __code device_descriptor_t DEVICEDESC;
-extern __code config_descriptor_set_t HIDCONFIGDESC;
-extern __code BYTE HIDREPORTDESC[];
+extern const __code device_descriptor_t DEVICEDESC;
+extern const __code config_descriptor_set_t HIDCONFIGDESC;
+extern const __code BYTE HIDREPORTDESC[];
 
-extern __code unsigned char* __code STRINGDESCTABLE [];
+extern const __code unsigned char* const __code STRINGDESCTABLE [];
 
-extern __code unsigned char ONES_PACKET[2];
-extern __code unsigned char ZERO_PACKET[2];
+extern const __code unsigned char ONES_PACKET[2];
+extern const __code unsigned char ZERO_PACKET[2];
 
 //-----------------------------------------------------------------------------
 // Global Variable Definitions
@@ -89,14 +89,14 @@ void USB_WRITE_E0CSR_SOPRDY(void)
 #endif
 
 #ifdef USE_EP1
-void USB_WRITE_INDEX0()
+void USB_WRITE_INDEX0(void)
 {
   USB_POLL();
   USB0ADR = INDEX; 
   USB0DAT = 0;
 }
 
-void USB_WRITE_INDEX1()
+void USB_WRITE_INDEX1(void)
 {
   USB_POLL();
   USB0ADR = INDEX;
@@ -107,7 +107,7 @@ void USB_WRITE_INDEX1()
 #ifndef GBOOT_TINY
 #define SET_ZERO_PACKET() SET_PACKET(0)
 #else
-void SET_ZERO_PACKET()
+void SET_ZERO_PACKET(void)
 {
   __asm
     mov	_TXDATAPTR, #(_ZERO_PACKET)
